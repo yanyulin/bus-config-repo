@@ -95,3 +95,4 @@ paascloud:
       endpointName: cn-beijing
       product: Dysmsapi
       domain: dysmsapi.aliyuncs.com
+
