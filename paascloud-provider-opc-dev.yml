@@ -61,11 +61,11 @@ paascloud:
     zkAddressList: paascloud-provider-zk:2181
   qiniu:
     key:
-      accessKey: yourQiniuAccessKey
-      secretKey: yourQiniuSecretKey
+      accessKey: VpT_l_xAEFUxjQKva74FgUJRrj3QpoN8f3jfOnDK
+      secretKey: Az-YhxiR3s46qfRgLIUlreHbhjVqUhzU3YQuyDVu
     oss:
-      privateHost:
-      publicHost:
+      privateHost: http://www.yanyulin.top1
+      publicHost: http://www.yanyulin.top
       fileMaxSize: 104857600
   oauth2:
     jwtSigningKey: paascloud
@@ -78,8 +78,8 @@ paascloud:
       tokenStore: jwt
   aliyun:
     key:
-      accessKeyId: yourAliyunAccessKey
-      accessKeySecret: yourAliyunKeySecret
+      accessKeyId: your aliyun accessKeyId
+      accessKeySecret: your aliyun accessKeySecret
     rocketMq:
       enable: true
       reliableMessageConsumer: true
@@ -95,3 +95,4 @@ paascloud:
       endpointName: cn-beijing
       product: Dysmsapi
       domain: dysmsapi.aliyuncs.com
+
