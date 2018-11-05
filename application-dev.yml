@@ -128,7 +128,7 @@ paascloud:
       secretKey: 'Az-YhxiR3s46qfRgLIUlreHbhjVqUhzU3YQuyDVu'
     oss:
       privateHost: 'http://os29l237a.bkt.clouddn.com'
-      publicHost: 'http://os29l237a.bkt.clouddn.com'
+      publicHost: http://www.yanyulin.top
   alipay:
     callback:
       url: http://dev-api.paascloud.net/omc/pay/alipayCallback
