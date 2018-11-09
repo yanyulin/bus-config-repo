@@ -19,7 +19,7 @@ zuul:
       path: /uac/**
       sensitiveHeaders:
 #      strip-prefix: false
-      service-id: paascloud-provider-uac
+      service-id: bus-provider-uac
       ribbon:
         eager-load:
           enabled: true
@@ -31,7 +31,7 @@ zuul:
     mdc-route:
       path: /mdc/**
       sensitiveHeaders:
-      service-id: paascloud-provider-mdc
+      service-id: bus-provider-mdc
       ribbon:
         eager-load:
           enabled: true
@@ -43,7 +43,7 @@ zuul:
     omc-route:
       path: /omc/**
       sensitiveHeaders:
-      service-id: paascloud-provider-omc
+      service-id: bus-provider-omc
       ribbon:
         eager-load:
           enabled: true
@@ -55,7 +55,7 @@ zuul:
     opc-route:
       path: /opc/**
       sensitiveHeaders:
-      service-id: paascloud-provider-opc
+      service-id: bus-provider-opc
       ribbon:
         eager-load:
           enabled: true
@@ -67,7 +67,7 @@ zuul:
     mall-route:
       path: /mall/**
       sensitiveHeaders:
-      service-id: paascloud-web-mall
+      service-id: bus-web-mall
       ribbon:
         eager-load:
           enabled: true
@@ -79,7 +79,7 @@ zuul:
     tpc-route:
       path: /tpc/**
       sensitiveHeaders:
-      service-id: paascloud-provider-tpc
+      service-id: bus-provider-tpc
       ribbon:
         eager-load:
           enabled: true
@@ -94,15 +94,15 @@ zuul:
 security:
   oauth2:
     client:
-      clientId: paascloud-client-gateway
-      clientSecret: paascloudClientSecret
-      access-token-uri: http://paascloud-gateway:7979/uac/oauth/token
-      user-authorization-uri: http://paascloud-gateway:7979/uac/oauth/authorize
+      clientId: bus-client-gateway
+      clientSecret: busClientSecret
+      access-token-uri: http://bus-gateway:7979/uac/oauth/token
+      user-authorization-uri: http://bus-gateway:7979/uac/oauth/authorize
     resource:
-      user-info-uri: http://paascloud-gateway:7979/uac/user
+      user-info-uri: http://bus-gateway:7979/uac/user
       prefer-token-info: false
       jwt:
-        key-uri: http://paascloud-provider-uac:8000/oauth/token_key
+        key-uri: http://bus-provider-uac:8000/oauth/token_key
 
 proxy:
   auth:
@@ -110,7 +110,7 @@ proxy:
       uac-route: oauth2
       mdc-route: oauth2
 
-paascloud:
+bus:
   enableSqlLogInterceptor: false
 # swagger butler配置
 swagger.butler:
