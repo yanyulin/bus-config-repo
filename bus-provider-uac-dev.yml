@@ -48,8 +48,7 @@ bus:
       enable: true
       reliableMessageConsumer: false
       reliableMessageProducer: true
-      instanceName: 
-      cloud-provider-uac
+      instanceName: cloud-provider-uac
       consumerGroup: CID_UAC
       producerGroup: PID_UAC
   auth:
