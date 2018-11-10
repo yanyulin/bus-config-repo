@@ -95,7 +95,7 @@ security:
   oauth2:
     client:
       clientId: bus-client-gateway
-      clientSecret: busClientSecret
+      clientSecret: paascloudClientSecret
       access-token-uri: http://bus-gateway:7979/uac/oauth/token
       user-authorization-uri: http://bus-gateway:7979/uac/oauth/authorize
     resource:
