@@ -14,7 +14,7 @@ spring:
     joda-date-time-format: yyyy-MM-dd HH:mm:ss
     date-format: yyyy-MM-dd HH:mm:ss
   datasource:
-    url: jdbc:mysql://paascloud-db-mysql:3306/paascloud_opc?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://bus-db-mysql:3306/bus_opc?useUnicode=true&characterEncoding=UTF-8
 
 liquibase:
   change-log: classpath:liquibase/index.xml
@@ -23,13 +23,13 @@ liquibase:
   url: ${spring.datasource.url}
 
 mybatis:
-  type-aliases-package: com.paascloud.provider.model.domain
+  type-aliases-package: com.bus.provider.model.domain
   mapper-locations: classpath:mapper/*.xml,classpath*:sdk/mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
 
 mapper:
-  mappers: com.paascloud.core.mybatis.MyMapper
+  mappers: com.bus.core.mybatis.MyMapper
   not-empty: false
   identity: MYSQL
 
@@ -42,23 +42,23 @@ pagehelper:
 security:
   oauth2:
     client:
-      clientId: paascloud-client-opc
+      clientId: bus-client-opc
       clientSecret: paascloudClientSecret
-      access-token-uri: http://paascloud-gateway:7979/uac/oauth/token
-      user-authorization-uri: http://paascloud-gateway:7979/uac/oauth/authorize
+      access-token-uri: http://bus-gateway:7979/uac/oauth/token
+      user-authorization-uri: http://bus-gateway:7979/uac/oauth/authorize
     resource:
-      user-info-uri: http://paascloud-gateway:7979/uac/user
+      user-info-uri: http://bus-gateway:7979/uac/user
       prefer-token-info: false
       jwt:
-        key-uri: http://paascloud-provider-uac:8000/oauth/token_key
+        key-uri: http://bus-provider-uac:8000/oauth/token_key
 
-paascloud:
+bus:
   enableSqlLogInterceptor: false
   token:
     interceptor:
       enable: true
   zk:
-    zkAddressList: paascloud-provider-zk:2181
+    zkAddressList: bus-provider-zk:2181
   qiniu:
     key:
       accessKey: VpT_l_xAEFUxjQKva74FgUJRrj3QpoN8f3jfOnDK
@@ -68,7 +68,7 @@ paascloud:
       publicHost: http://yy.yanyulin.top
       fileMaxSize: 104857600
   oauth2:
-    jwtSigningKey: paascloud
+    jwtSigningKey: bus
     client:
       id: ${security.oauth2.resource.id}
       accessTokenUrl: ${security.oauth2.client.access-token-uri}
@@ -84,8 +84,8 @@ paascloud:
       enable: true
       reliableMessageConsumer: true
       reliableMessageProducer: false
-      namesrvAddr: paascloud-mq-rocket:9876
-      instanceName: paascloud-provider-opc
+      namesrvAddr: bus-mq-rocket:9876
+      instanceName: bus-provider-opc
       consumerGroup: CID_OPC
       producerGroup: PID_OPC
     sms:
