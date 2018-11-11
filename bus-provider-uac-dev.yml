@@ -52,14 +52,14 @@ bus:
       consumerGroup: CID_UAC
       producerGroup: PID_UAC
   auth:
-    rest-pwd-url: http://dev-login.paascloud.net/resetPwd?resetPwdKey=
-    active-user-url: http://dev-api.paascloud.net:7979/uac/auth/activeUser/
-    refresh-token-url: http://dev-api.paascloud.net:7979/uac/oauth/token
+    rest-pwd-url: http://dev-login.bus.net/resetPwd?resetPwdKey=
+    active-user-url: http://dev-api.bus.net:7979/uac/auth/activeUser/
+    refresh-token-url: http://dev-api.bus.net:7979/uac/oauth/token
   token:
     interceptor:
       enable: true
   oauth2:
-    jwtSigningKey: paascloud
+    jwtSigningKey: bus
     client:
       id: ${security.oauth2.resource.id}
       accessTokenUrl: ${security.oauth2.client.access-token-uri}
@@ -90,42 +90,54 @@ bus:
     oauth2:
       tokenStore: jwt
       clients[0]:
-        clientId: paascloud-client-uac
+        clientId: bus-client-uac
         clientSecret: paascloudClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
       clients[1]:
-        clientId: paascloud-browser
+        clientId: bus-browser
         clientSecret: paascloudClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
       clients[2]:
-        clientId: paascloud-client-gateway
+        clientId: bus-client-gateway
         clientSecret: paascloudClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
       clients[3]:
-        clientId: paascloud-client-zipkin
+        clientId: bus-client-zipkin
         clientSecret: paascloudClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
       clients[4]:
-        clientId: paascloud-client-mdc
+        clientId: bus-client-mdc
         clientSecret: paascloudClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
       clients[5]:
-        clientId: paascloud-client-omc
+        clientId: bus-client-omc
         clientSecret: paascloudClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
       clients[6]:
-        clientId: paascloud-client-opc
+        clientId: bus-client-opc
         clientSecret: paascloudClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
       clients[7]:
-        clientId: paascloud-client-tpc
-        clientSecret: paascloudClientSecret
+        clientId: bus-client-tpc
+        clientSecret: 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        loudClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
