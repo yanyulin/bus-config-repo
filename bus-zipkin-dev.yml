@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://paascloud-db-mysql:3306/paascloud_zipkin?characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://bus-db-mysql:3306/bus_zipkin?characterEncoding=utf8&useSSL=false
     schema: classpath:/mysql.sql
   sleuth:
     enabled: false
@@ -12,7 +12,7 @@ spring:
 zipkin:
   collector:
     rabbitmq:
-      addresses: paascloud-mq-rabbit:5672
+      addresses: bus-mq-rabbit:5672
       username: guest
       password: guest
       queue: zipkin
@@ -22,17 +22,17 @@ zipkin:
 security:
   oauth2:
     client:
-      clientId: paascloud-client-zipkin
+      clientId: bus-client-zipkin
       clientSecret: paascloudClientSecret
-      access-token-uri: http://paascloud-gateway:7979/uac/oauth/token
-      user-authorization-uri: http://paascloud-gateway:7979/uac/oauth/authorize
+      access-token-uri: http://bus-gateway:7979/uac/oauth/token
+      user-authorization-uri: http://bus-gateway:7979/uac/oauth/authorize
     resource:
-      user-info-uri: http://paascloud-gateway:7979/uac/user
+      user-info-uri: http://bus-gateway:7979/uac/user
       prefer-token-info: false
       jwt:
-        key-uri: http://paascloud-provider-uac:8000/oauth/token_key
+        key-uri: http://bus-provider-uac:8000/oauth/token_key
 
-paascloud:
+bus:
   oauth2:
     client:
       id: ${security.oauth2.resource.id}
