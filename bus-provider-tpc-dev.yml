@@ -71,7 +71,7 @@ bus:
       tokenStore: jwt
   zk:
     zkAddressList: bus-provider-zk:2181
-    namespace: bus-elastic-job
+    namespace: paascloud-elastic-job
   job:
     task:
       dingTalk:
