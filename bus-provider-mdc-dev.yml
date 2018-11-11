@@ -7,7 +7,7 @@ spring:
   cache:
     cache-names: mdc-cache
   datasource:
-    url: jdbc:mysql://paascloud-db-mysql:3306/paascloud_mdc?characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://bus-db-mysql:3306/bus_mdc?characterEncoding=utf8&useSSL=false
 
 liquibase:
   change-log: classpath:liquibase/index.xml
@@ -16,13 +16,13 @@ liquibase:
   url: ${spring.datasource.url}
 
 mybatis:
-  type-aliases-package: com.paascloud.provider.model.domain
+  type-aliases-package: com.bus.provider.model.domain
   mapper-locations: classpath:mapper/*.xml,classpath*:sdk/mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
 
 mapper:
-  mappers: com.paascloud.core.mybatis.MyMapper
+  mappers: com.bus.core.mybatis.MyMapper
   not-empty: false
   identity: MYSQL
 
@@ -35,17 +35,17 @@ pagehelper:
 security:
   oauth2:
     client:
-      clientId: paascloud-client-mdc
+      clientId: bus-client-mdc
       clientSecret: paascloudClientSecret
-      access-token-uri: http://paascloud-gateway:7979/uac/oauth/token
-      user-authorization-uri: http://paascloud-gateway:7979/uac/oauth/authorize
+      access-token-uri: http://bus-gateway:7979/uac/oauth/token
+      user-authorization-uri: http://bus-gateway:7979/uac/oauth/authorize
     resource:
-      user-info-uri: http://paascloud-gateway:7979/uac/user
+      user-info-uri: http://bus-gateway:7979/uac/user
       prefer-token-info: false
       jwt:
-        key-uri: http://paascloud-provider-uac:8000/oauth/token_key
+        key-uri: http://bus-provider-uac:8000/oauth/token_key
 
-paascloud:
+bus:
   enableSqlLogInterceptor: false
   dingTalk:
     webhookToken:
@@ -55,18 +55,18 @@ paascloud:
     interceptor:
       enable: true
   zk:
-    zkAddressList: paascloud-provider-zk:2181
+    zkAddressList: bus-provider-zk:2181
   aliyun:
     rocketMq:
       enable: false
       reliableMessageConsumer: false
       reliableMessageProducer: true
-      namesrvAddr: paascloud-mq-rocket:9876
-      instanceName: paascloud-provider-mdc
+      namesrvAddr: bus-mq-rocket:9876
+      instanceName: bus-provider-mdc
       consumerGroup: CID_MDC
       producerGroup: PID_MDC
   oauth2:
-    jwtSigningKey: paascloud
+    jwtSigningKey: bus
     client:
       id: ${security.oauth2.resource.id}
       accessTokenUrl: ${security.oauth2.client.access-token-uri}
