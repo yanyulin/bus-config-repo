@@ -126,18 +126,6 @@ bus:
         scope: "*"
       clients[7]:
         clientId: bus-client-tpc
-        clientSecret: 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        loudClientSecret
+        clientSecret: loudClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
